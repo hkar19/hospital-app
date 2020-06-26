@@ -5,8 +5,10 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from 'react-bootstrap/Button';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
 import Jumbotron from 'react-bootstrap/Jumbotron';
+import Image from "react-bootstrap/Image";
+
+import logo from "../hospital.png";
 
 
 const Login = (props)=>{
@@ -31,9 +33,17 @@ const Login = (props)=>{
     setPassword("");
   }
 
-  return (
+  return props.user ? [] : (
     <Jumbotron>
       <Form onSubmit={handleSubmit}>
+        <Image
+          alt=""
+          src={logo}
+          height="50"
+          width="50"
+        ></Image>
+        <h2>RS Tjahaja Hati</h2>
+        <small>powered by Sinapsis</small>
         <Form.Group as={Row} controlId="user">
           <Form.Label column sm={2}>User</Form.Label>
           <Col sm={10}>

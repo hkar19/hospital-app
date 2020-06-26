@@ -12,8 +12,8 @@ import logo from "../hospital.png";
 
 function NavBar(props) {
   const user= {
-    name: "admin",
-    logo: require("../assets/avatar/admin.svg")
+    name: props.user,
+    logo: props.user ? require(`../assets/avatar/${props.user}.svg`) : ""
   }
   
   // require("../assets/avatar/pasien.svg");
@@ -21,7 +21,24 @@ function NavBar(props) {
 
   const populateNav = (user)=>{
     const list = [];
+    if(!user.name) return list;
+    list.push(
+      <>
+      <Navbar.Brand href="#home">
+        <img
+          alt=""
+          src={logo}
+          width="40"
+          height="40"
+        ></img>
+        RS Tjahaja Hati
+        <small>-powered by Sinapsis</small>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      </>
+    )
     if(user.name != "admin"){
+      
       list.push(
         <Form inline className="mr-auto">
           <FormControl 
@@ -33,11 +50,13 @@ function NavBar(props) {
         </Form>
       )
     }
-    return list.length ? list: (<Nav className="mr-auto"></Nav>);
+    // return list.length ? list: (<Nav className="mr-auto"></Nav>);
+    return list;
   }
 
   const populateAva = (user)=>{
     const list = [];
+    if(!user.name) return list;
     const isAdmin = user.name === "admin";
     if(!isAdmin){
       list.push(
@@ -46,6 +65,7 @@ function NavBar(props) {
         <NavDropdown.Item key="admin">Hubungi Admin</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item key="credit" disabled>Credit: Rp 2.000.000,-</NavDropdown.Item>
+        <NavDropdown.Item key="setting">Pengaturan</NavDropdown.Item>
         </>
       );
     }
@@ -55,7 +75,7 @@ function NavBar(props) {
     );
 
     return (
-      <Nav as="ul">
+      <Nav as="ul" className="ml-auto">
         <Nav.Item as="li">{user.name}</Nav.Item>
         <Nav.Item as="li">
           <Image
@@ -76,17 +96,7 @@ function NavBar(props) {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">
-        <img
-          alt=""
-          src={logo}
-          width="40"
-          height="40"
-        ></img>
-        RS Tjahaja Hati
-        <small>-powered by Sinapsis</small>
-        </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
       {populateNav(user)}
       {populateAva(user)}
 

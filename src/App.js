@@ -8,19 +8,20 @@ import Login from './pages/Login';
 // import './App.css';
 
 const App =()=>{
-  const [user,setUser] = useState("pasien");
+  const [user,setUser] = useState(userDummy[2]);
 
   return (
     <Router>
-      <NavBar/>
-      <Route path="/" exact component={Login}></Route>
+      <NavBar user={user}/>
+      <Route path="/" render={()=><Login user={user}/>}></Route>
     </Router>
   );
 }
 export default App;
 
-const user = [
+const userDummy = [
   "pasien",
   "dokter",
-  "admin"
+  "admin",
+  null
 ]
