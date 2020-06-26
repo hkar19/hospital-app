@@ -8,6 +8,7 @@ import Login from './pages/Login';
 // import './App.css';
 
 const App =()=>{
+  const [user,setUser] = useState("pasien");
 
   return (
     <Router>
@@ -19,7 +20,7 @@ const App =()=>{
 export default App;
 
 const user = [
-  "user-1",
-  "doctor",
+  "pasien",
+  "dokter",
   "admin"
 ]

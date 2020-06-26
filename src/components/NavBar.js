@@ -12,8 +12,8 @@ import logo from "../hospital.png";
 
 function NavBar(props) {
   const user= {
-    name: "pasien",
-    logo: require("../assets/avatar/pasien.svg")
+    name: "admin",
+    logo: require("../assets/avatar/admin.svg")
   }
   
   // require("../assets/avatar/pasien.svg");
@@ -26,13 +26,14 @@ function NavBar(props) {
         <Form inline className="mr-auto">
           <FormControl 
             type="text" 
-            placeholder={`cari ${user.name}`}
+            placeholder={`cari ${user.name == "pasien" ? "dokter":"pasien"}`}
             className="mr-sm-2"
           ></FormControl>
           <Button variant="outline-success">Cari</Button>
         </Form>
       )
     }
+    return list.length ? list: (<Nav className="mr-auto"></Nav>);
   }
 
   const populateAva = (user)=>{
@@ -41,16 +42,16 @@ function NavBar(props) {
     if(!isAdmin){
       list.push(
         <>
-        <NavDropdown.Item>Histori Konsul</NavDropdown.Item>
-        <NavDropdown.Item>Hubungi Admin</NavDropdown.Item>
+        <NavDropdown.Item key="konsul">Histori Konsul</NavDropdown.Item>
+        <NavDropdown.Item key="admin">Hubungi Admin</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item disabled>Credit: Rp 2.000.000,-</NavDropdown.Item>
+        <NavDropdown.Item key="credit" disabled>Credit: Rp 2.000.000,-</NavDropdown.Item>
         </>
       );
     }
 
     list.push(
-      <NavDropdown.Item>Logout</NavDropdown.Item>
+      <NavDropdown.Item key="logout">Logout</NavDropdown.Item>
     );
 
     return (
@@ -66,7 +67,7 @@ function NavBar(props) {
             thumbnail
           ></Image>
         </Nav.Item>
-        <NavDropdown drop="left" >
+        <NavDropdown title="" drop="left" >
           {list}
         </NavDropdown>
       </Nav>
@@ -86,7 +87,6 @@ function NavBar(props) {
         <small>-powered by Sinapsis</small>
         </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Nav className="mr-auto"></Nav>
       {populateNav(user)}
       {populateAva(user)}
 
