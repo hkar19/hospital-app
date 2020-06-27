@@ -8,8 +8,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 function Pasien(props) {
   const [state, setstate] = useState("");
   
-  const populateAppointment = (janji)=>{
-
+  const populateJanji = (janji)=>{
     return janji.map((val,i)=>(
       <Card key={i}>
         <Accordion.Toggle as={Card.Header} eventKey={i}>
@@ -36,7 +35,7 @@ function Pasien(props) {
         </Card.Header>
         <Card.Body>
           <Accordion>
-            {populateAppointment(janjiDummy)}
+            {populateJanji(janjiDummy)}
           </Accordion>
         </Card.Body>
       </Card>

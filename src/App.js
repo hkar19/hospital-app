@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Login from './pages/Login';
 import Pasien from './pages/Pasien';
+import Dokter from './pages/Dokter';
 
 // import logo from './logo.svg';
 // import './App.css';
@@ -28,6 +29,10 @@ const App =()=>{
         render={(props)=><Pasien {...props} user={user}/>}
       >
       </Route>
+      <Route
+        path="/dokter"
+        render={(props)=><Dokter {...props} user={user}/>}
+      ></Route>
     </Router>
   );
 }
