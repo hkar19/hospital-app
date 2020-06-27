@@ -46,7 +46,7 @@ function NavBar(props) {
             placeholder={`cari ${user.name == "pasien" ? "dokter":"pasien"}`}
             className="mr-sm-2"
           ></FormControl>
-          <Button variant="outline-success">Cari</Button>
+          <Button variant="outline-success">Cari {user.name == "pasien" ? "dokter":"pasien"}</Button>
         </Form>
       )
     }
@@ -95,7 +95,7 @@ function NavBar(props) {
   }
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" sticky="top">
 
       {populateNav(user)}
       {populateAva(user)}
