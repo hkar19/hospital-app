@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "hospital-app-fee6e",
+    "staging": "hospital-app-7c5f6"
+  }
+}
