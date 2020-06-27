@@ -77,3 +77,5 @@ const janjiDummy = [
     date: "24 juni 2021"
   }
 ]
+
+

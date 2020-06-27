@@ -65,13 +65,15 @@ function NavBar(props) {
         <NavDropdown.Item key="admin">Hubungi Admin</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item key="credit" disabled>Credit: Rp 2.000.000,-</NavDropdown.Item>
-        <NavDropdown.Item key="setting">Pengaturan</NavDropdown.Item>
         </>
       );
     }
 
     list.push(
-      <NavDropdown.Item key="logout">Logout</NavDropdown.Item>
+      <>
+        <NavDropdown.Item key="setting">Pengaturan</NavDropdown.Item>
+        <NavDropdown.Item key="logout">Logout</NavDropdown.Item>
+      </>
     );
 
     return (

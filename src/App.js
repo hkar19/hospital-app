@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Pasien from './pages/Pasien';
 import Dokter from './pages/Dokter';
 import Chat from './pages/Chat';
+import Admin from './pages/Admin';
 
 // import logo from './logo.svg';
 // import './App.css';
@@ -37,6 +38,10 @@ const App =()=>{
       <Route
         path="/chat"
         render={(props)=><Chat {...props} user={user}/>}
+      ></Route>
+      <Route
+        path="/admin"
+        render={(props)=><Admin {...props} user={user}/>}
       ></Route>
     </Router>
   );
