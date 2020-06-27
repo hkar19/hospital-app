@@ -26,30 +26,32 @@ function Chat(props) {
   const populateSOAP= (data)=>{
     let list = [];
     list.push(
-      <Form >
-        <Form.Group controlId="Subjective">
-          <Form.Label className="h3">Subjective</Form.Label>
+      <Form as={Row} inline>
+        <Form.Group as={Col} controlId="Subjective">
+          <Form.Label className="h3">S</Form.Label>
           <Form.Control 
+            
             as="textarea"
+            style={{backgroundImage: `url(../assets/s.png)`}}
             placeholder="masukkan subjective"
             value={data.S}></Form.Control>
         </Form.Group>
-        <Form.Group controlId="Objective">
-          <Form.Label className="h3">Objective</Form.Label>
+        <Form.Group as={Col} controlId="Objective">
+          <Form.Label className="h3">O</Form.Label>
           <Form.Control 
             as="textarea"
             placeholder="masukkan Objective"
             value={data.O}></Form.Control>
         </Form.Group>
-        <Form.Group controlId="Analysis">
-          <Form.Label className="h3">Analysis</Form.Label>
+        <Form.Group as={Col} controlId="Analysis">
+          <Form.Label className="h3">A</Form.Label>
           <Form.Control
             as="textarea" 
             placeholder="masukkan Analysis"
             value={data.A}></Form.Control>
         </Form.Group>
-        <Form.Group controlId="Planning">
-          <Form.Label className="h3">Planning</Form.Label>
+        <Form.Group as={Col} controlId="Planning">
+          <Form.Label className="h3">P</Form.Label>
           <Form.Control 
             as="textarea"
             placeholder="masukkan Planning"
@@ -57,8 +59,8 @@ function Chat(props) {
         </Form.Group>
         <Row>
           <ButtonGroup>
-            <Button as={Col} className="ml-3">Check patient history</Button>
-            <Button as={Col} className="ml-3 btn-success">Submit SOAP</Button>
+            <Button variant="success" as={Col} className="ml-3">Check patient history</Button>
+            <Button variant="success" as={Col} className="ml-3">Submit SOAP</Button>
           </ButtonGroup>
         </Row>
       </Form>
@@ -76,6 +78,30 @@ function Chat(props) {
                 {populateSOAP(SOAPDummy)}
               </Col>
           ): []}
+          {/* <Col 
+            style={
+              {
+                backgroundImage: `url(${video})`,
+                backgroundSize: "contain",
+                backgroundRepeat:"no-repeat",
+                backgroundPosition:"center"}}>
+            <Row className="ml-1 mr-1 absolute-bottom" style={{position}}>
+              <ButtonGroup className="">
+                <Button as={Col} className="ml-1 mr-1">
+                  <Mute className="h4"/>
+                </Button>
+                <Button as={Col} className="ml-1 mr-1">
+                  <CameraOff className="h4"/>
+                </Button>
+                <Button as={Col} className="ml-1 mr-1">
+                  <CameraSwitch className="h4"/>
+                </Button>
+                <Button as={Col} roundedCirle className="ml-1 mr-1">
+                  <EndCall className="h4"/>
+                </Button>
+              </ButtonGroup>
+            </Row>
+          </Col> */}
             <Card as={Col}>
               <Card.Img
                 alt=""
@@ -84,21 +110,23 @@ function Chat(props) {
               >
               </Card.Img>
               <Card.ImgOverlay>
-                <Card.Header className="h2">{user.name === "dokter"? "Ivan Gautama":"Poli Umum-dr. Wirawan"}</Card.Header>
+                <Card.Header className="h2">{user.name === "dokter"? "Renata Daulay":"Poli Umum-dr. Wirawan"}</Card.Header>
+                
+                
               </Card.ImgOverlay>
               <Card.Footer className="align-items-end">
                 <Row className="ml-1 mr-1 justify-content-around">
                   <ButtonGroup className="">
-                    <Button as={Col} className="ml-1 mr-1">
+                    <Button variant="success" as={Col} className="ml-1 mr-1">
                       <Mute className="h4"/>
                     </Button>
-                    <Button as={Col} className="ml-1 mr-1">
+                    <Button variant="success" as={Col} className="ml-1 mr-1">
                       <CameraOff className="h4"/>
                     </Button>
-                    <Button as={Col} className="ml-1 mr-1">
+                    <Button variant="success" as={Col} className="ml-1 mr-1">
                       <CameraSwitch className="h4"/>
                     </Button>
-                    <Button as={Col} roundedCirle className="ml-1 mr-1">
+                    <Button variant="success" as={Col} className="ml-1 mr-1">
                       <EndCall className="h4"/>
                     </Button>
                   </ButtonGroup>
