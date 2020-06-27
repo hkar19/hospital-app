@@ -5,12 +5,13 @@ import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Image from "react-bootstrap/Image";
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+// import Image from "react-bootstrap/Image";
 
-import video from "../assets/videoDummy.png";
+import video from "../assets/vidCall.jpg";
 import Form from 'react-bootstrap/Form';
 
-import { FaBeer } from "react-icons/fa";
+
 import { AiOutlineAudioMuted as Mute } from "react-icons/ai";
 import { FiVideoOff as CameraOff } from "react-icons/fi";
 import { RiCameraSwitchLine as CameraSwitch } from "react-icons/ri";
@@ -55,8 +56,10 @@ function Chat(props) {
             value={data.P}></Form.Control>
         </Form.Group>
         <Row>
-          <Button as={Col} className="ml-3">Check patient history</Button>
-          <Button as={Col} className="ml-3 btn-success">Submit SOAP</Button>
+          <ButtonGroup>
+            <Button as={Col} className="ml-3">Check patient history</Button>
+            <Button as={Col} className="ml-3 btn-success">Submit SOAP</Button>
+          </ButtonGroup>
         </Row>
       </Form>
     )
@@ -74,20 +77,31 @@ function Chat(props) {
               </Col>
           ): []}
             <Card as={Col}>
-              <Card.Header className="h2">{user.name === "dokter"? "Ivan Gautama":"Poli Umum-dr. Wirawan"}</Card.Header>
               <Card.Img
                 alt=""
                 src={video}
-                width="400"
-                height="400"
+                height="500"
               >
               </Card.Img>
-              <Card.Footer>
-                <Row className="ml-1 mr-1">
-                  <Button as={Col} className="ml-1 mr-1"><Mute className="h4"/><br/> Mute</Button>
-                  <Button as={Col} className="ml-1 mr-1"><CameraOff className="h4"/><br/> Turn off Camera</Button>
-                  <Button as={Col} className="ml-1 mr-1"><CameraSwitch className="h4"/><br/> Switch Camera</Button>
-                  <Button as={Col} className="ml-1 mr-1"><EndCall className="h4"/><br/> End Call</Button>
+              <Card.ImgOverlay>
+                <Card.Header className="h2">{user.name === "dokter"? "Ivan Gautama":"Poli Umum-dr. Wirawan"}</Card.Header>
+              </Card.ImgOverlay>
+              <Card.Footer className="align-items-end">
+                <Row className="ml-1 mr-1 justify-content-around">
+                  <ButtonGroup className="">
+                    <Button as={Col} className="ml-1 mr-1">
+                      <Mute className="h4"/>
+                    </Button>
+                    <Button as={Col} className="ml-1 mr-1">
+                      <CameraOff className="h4"/>
+                    </Button>
+                    <Button as={Col} className="ml-1 mr-1">
+                      <CameraSwitch className="h4"/>
+                    </Button>
+                    <Button as={Col} roundedCirle className="ml-1 mr-1">
+                      <EndCall className="h4"/>
+                    </Button>
+                  </ButtonGroup>
                 </Row>
               </Card.Footer>
             </Card>
