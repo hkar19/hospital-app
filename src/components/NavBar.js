@@ -37,16 +37,16 @@ function NavBar(props) {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       </>
     )
-    if(user.name != "admin"){
+    if(user.name !== "admin"){
       
       list.push(
         <Form inline className="mr-auto">
           <FormControl 
             type="text" 
-            placeholder={`cari ${user.name == "pasien" ? "dokter":"pasien"}`}
+            placeholder={`cari ${user.name === "pasien" ? "dokter":"pasien"}`}
             className="mr-sm-2"
           ></FormControl>
-          <Button variant="outline-success">Cari {user.name == "pasien" ? "dokter":"pasien"}</Button>
+          <Button variant="outline-success">Cari {user.name === "pasien" ? "dokter":"pasien"}</Button>
         </Form>
       )
     }

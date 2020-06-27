@@ -5,12 +5,13 @@ import NavBar from "./components/NavBar";
 import Login from './pages/Login';
 import Pasien from './pages/Pasien';
 import Dokter from './pages/Dokter';
+import Chat from './pages/Chat';
 
 // import logo from './logo.svg';
 // import './App.css';
 
 const App =()=>{
-  const [user,setUser] = useState(userDummy[0]);
+  const [user,setUser] = useState(userDummy[1]);
 
   const userSubmitHandler = (input)=>{
     //implementation here
@@ -32,6 +33,10 @@ const App =()=>{
       <Route
         path="/dokter"
         render={(props)=><Dokter {...props} user={user}/>}
+      ></Route>
+      <Route
+        path="/chat"
+        render={(props)=><Chat {...props} user={user}/>}
       ></Route>
     </Router>
   );

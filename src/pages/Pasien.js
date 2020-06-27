@@ -6,7 +6,7 @@ import Accordion from "react-bootstrap/Accordion";
 import ListGroup from "react-bootstrap/ListGroup";
 
 function Pasien(props) {
-  const [state, setstate] = useState("");
+  // const [state, setstate] = useState("");
   
   const populateJanji = (janji)=>{
     return janji.map((val,i)=>(
