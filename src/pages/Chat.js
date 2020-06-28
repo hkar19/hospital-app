@@ -138,7 +138,7 @@ function Chat(props) {
                   {user.name === "dokter"? ("Renata Daulay"):("dr. Joanna Vanderboom")}
                 </Col>
                 <Col className="text-right">
-                <small>(12:35)</small>
+                  (12:35)
                 </Col>
                 
               </Card.Header>

@@ -7,8 +7,11 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Accordion from "react-bootstrap/Accordion";
 import ListGroup from "react-bootstrap/ListGroup";
+import { Link, BrowserRouter as Router, Route, Switch, useRouteMatch } from 'react-router-dom';
+import Chat from "./Chat";
 
 function Dokter() {
+  let match = useRouteMatch();
 
   const populateJanji = (janji)=>{
     return janji.map((val,i)=>(
@@ -22,6 +25,9 @@ function Dokter() {
               <ListGroup.Item>Nama :   {val.pasien}</ListGroup.Item>
               <ListGroup.Item>Keluhan: {val.keluhan}</ListGroup.Item>
               <ListGroup.Item>Tanggal: {val.date}</ListGroup.Item>
+              <ListGroup.Item>
+                <Link to={`${match.url}/chat`}>Panggil</Link>
+              </ListGroup.Item>
             </ListGroup>
           </Card.Body>
         </Accordion.Collapse>
@@ -32,6 +38,7 @@ function Dokter() {
   return (
     <Jumbotron>
       <Container>
+        
         <Row>
           <Card as={Col}>
             <Calendar/>
@@ -59,6 +66,9 @@ function Dokter() {
         </Card>
         
       </Container>
+      {/* <Switch>
+        <Route path="/dokter/chat" render={()=>(<Chat user="dokter"/>)}></Route>
+      </Switch> */}
     </Jumbotron>
   )
 }
@@ -67,7 +77,7 @@ export default Dokter;
 
 const janjiDummy = [
   {
-    pasien: "Ivan Gautama",
+    pasien: "Renata Daulay",
     keluhan: "Diare",
     date: "24 juni 2021"
   },

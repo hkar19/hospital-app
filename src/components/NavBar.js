@@ -34,7 +34,7 @@ function NavBar(props) {
         RS Tjahaja Hati
         <small>-powered by Sinapsis</small>
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
       </>
     )
     if(user.name !== "admin"){
@@ -72,7 +72,7 @@ function NavBar(props) {
     list.push(
       <>
         <NavDropdown.Item key="setting">Pengaturan</NavDropdown.Item>
-        <NavDropdown.Item key="logout">Logout</NavDropdown.Item>
+        <NavDropdown.Item as="button" key="logout" onClick={props.handleLogOut}>Logout</NavDropdown.Item>
       </>
     );
 

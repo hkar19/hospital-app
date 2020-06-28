@@ -4,6 +4,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
 import ListGroup from "react-bootstrap/ListGroup";
+import { Link } from 'react-router-dom';
 
 function Pasien(props) {
   // const [state, setstate] = useState("");
@@ -29,6 +30,7 @@ function Pasien(props) {
   
   return (
     <Jumbotron>
+      <Link to="/pasien/chat">ke chat</Link>
       <Card>
         <Card.Header>
           Janji dengan Dokter

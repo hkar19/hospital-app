@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, useHistory, Switch } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
 import Login from './pages/Login';
@@ -12,45 +12,65 @@ import Admin from './pages/Admin';
 // import './App.css';
 
 const App =()=>{
-  const [user,setUser] = useState(userDummy[1]);
+  const [user,setUser] = useState("dokter");
+
+  const [logIn,setLogIn] = useState(true);
+
+  let history = useHistory();
 
   const userSubmitHandler = (input)=>{
     //implementation here
+    console.log("HELOO")
+    if(userDummy[input]){
+      setUser(input);
+      setLogIn(true);
+      // history.push("/")
+    }
+    else return;
+  }
+
+  const handleLogOut = ()=>{
+    setUser(null);
+    setLogIn(false);
   }
 
   return (
     <Router>
-      <NavBar user={user}/>
-      <Route
-        exact
-        path="/" 
-        render={(props)=><Login {...props} user={user} userSubmitHandler={userSubmitHandler}/>}
-      ></Route>
-      <Route
-        path="/pasien"
-        render={(props)=><Pasien {...props} user={user}/>}
-      >
+      <NavBar user={user} handleLogOut={handleLogOut}/>
+      <Route exact path="/">
+        {logIn ? (<Redirect to={`/${user}`}/>): (<Login userSubmitHandler={userSubmitHandler}/>)}
       </Route>
-      <Route
-        path="/dokter"
-        render={(props)=><Dokter {...props} user={user}/>}
-      ></Route>
-      <Route
-        path="/chat"
-        render={(props)=><Chat {...props} user={user}/>}
-      ></Route>
-      <Route
-        path="/admin"
-        render={(props)=><Admin {...props} user={user}/>}
-      ></Route>
+
+      {/* pasien */}
+      <Switch>
+        <Route path="/pasien/chat">
+          {logIn ? (user==="pasien" ? <Chat user={user}/> : <Redirect to={`/${user}`}/>):(<Redirect to="/"/>)}
+        </Route>
+        <Route path="/pasien">
+          {logIn ? (user==="pasien" ? <Pasien/> : <Redirect to={`/${user}`}/>):(<Redirect to="/"/>)}
+        </Route>
+      </Switch>
+
+      {/* dokter */}
+      <Switch>
+        <Route path="/dokter/chat">
+          {logIn ? (user==="dokter" ? <Chat user="dokter"/> : <Redirect to={`/${user}`}/>):(<Redirect to="/"/>)}
+        </Route>
+        <Route path="/dokter">
+          {logIn ? (user==="dokter" ? <Dokter/> : <Redirect to={`/${user}`}/>):(<Redirect to="/"/>)}
+        </Route>
+      </Switch>
+
+      <Route path="/admin">
+        {logIn ? (user==="admin" ? <Admin/> : <Redirect to={`/${user}`}/>):(<Redirect to="/"/>)}
+      </Route>
     </Router>
   );
 }
 export default App;
 
-const userDummy = [
-  "pasien",
-  "dokter",
-  "admin",
-  null
-]
+const userDummy = {
+  "admin":true,
+  "pasien":true,
+  "dokter":true
+}
