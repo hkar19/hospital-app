@@ -26,46 +26,47 @@ function Chat(props) {
   const populateSOAP= (data)=>{
     let list = [];
     list.push(
-      <Form as={Row} inline>
-        <Form.Group as={Col} controlId="Subjective">
+      <Form as={Row} className="mr-2">
+        <Form.Group  controlId="Subjective">
           <Form.Label className="h3">S</Form.Label>
           <Form.Control 
-            
             as="textarea"
-            style={{backgroundImage: `url(../assets/s.png)`}}
+            // style={{backgroundImage: `url(../assets/s.png)`}}
             placeholder="masukkan subjective"
             value={data.S}></Form.Control>
         </Form.Group>
-        <Form.Group as={Col} controlId="Objective">
+        <Form.Group  controlId="Objective">
           <Form.Label className="h3">O</Form.Label>
           <Form.Control 
             as="textarea"
+            
             placeholder="masukkan Objective"
             value={data.O}></Form.Control>
         </Form.Group>
-        <Form.Group as={Col} controlId="Analysis">
+        <Form.Group  controlId="Analysis">
           <Form.Label className="h3">A</Form.Label>
           <Form.Control
             as="textarea" 
+            
             placeholder="masukkan Analysis"
             value={data.A}></Form.Control>
         </Form.Group>
-        <Form.Group as={Col} controlId="Planning">
+        <Form.Group  controlId="Planning">
           <Form.Label className="h3">P</Form.Label>
           <Form.Control 
             as="textarea"
+            
             placeholder="masukkan Planning"
             value={data.P}></Form.Control>
         </Form.Group>
         <Row>
           <ButtonGroup>
-            <Button variant="success" as={Col} className="ml-3">Check patient history</Button>
-            <Button variant="success" as={Col} className="ml-3">Submit SOAP</Button>
+            <Button variant="success" as={Col} className="mr-1 ml-1">Check patient history</Button>
+            <Button variant="success" as={Col} className="mr-1 ml-1">Submit SOAP</Button>
           </ButtonGroup>
         </Row>
       </Form>
     )
-
     return list;
   }
   
@@ -78,42 +79,25 @@ function Chat(props) {
                 {populateSOAP(SOAPDummy)}
               </Col>
           ): []}
-          {/* <Col 
-            style={
-              {
-                backgroundImage: `url(${video})`,
-                backgroundSize: "contain",
-                backgroundRepeat:"no-repeat",
-                backgroundPosition:"center"}}>
-            <Row className="ml-1 mr-1 absolute-bottom" style={{position}}>
-              <ButtonGroup className="">
-                <Button as={Col} className="ml-1 mr-1">
-                  <Mute className="h4"/>
-                </Button>
-                <Button as={Col} className="ml-1 mr-1">
-                  <CameraOff className="h4"/>
-                </Button>
-                <Button as={Col} className="ml-1 mr-1">
-                  <CameraSwitch className="h4"/>
-                </Button>
-                <Button as={Col} roundedCirle className="ml-1 mr-1">
-                  <EndCall className="h4"/>
-                </Button>
-              </ButtonGroup>
-            </Row>
-          </Col> */}
             <Card as={Col}>
-              <Card.Img
-                alt=""
-                src={video}
-                height="500"
-              >
-              </Card.Img>
-              <Card.ImgOverlay>
-                <Card.Header className="h2">{user.name === "dokter"? "Renata Daulay":"Poli Umum-dr. Wirawan"}</Card.Header>
+              
+              <Card.Header as={Row}  className="h2">
+                <Col lg={8}>
+                  {user.name === "dokter"? ("Renata Daulay"):("dr. Joanna Vanderboom")}
+                </Col>
+                <Col className="text-right">
+                <small>(12:35)</small>
+                </Col>
                 
-                
-              </Card.ImgOverlay>
+              </Card.Header>
+              <Card.Body>
+                <Card.Img
+                  alt=""
+                  src={video}
+                  height="500"
+                >
+                </Card.Img>
+              </Card.Body>
               <Card.Footer className="align-items-end">
                 <Row className="ml-1 mr-1 justify-content-around">
                   <ButtonGroup className="">
