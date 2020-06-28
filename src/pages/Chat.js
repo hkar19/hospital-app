@@ -6,9 +6,14 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-// import Image from "react-bootstrap/Image";
+import Image from "react-bootstrap/Image";
 
 import video from "../assets/vidCall.jpg";
+import sImage from "../assets/SOAP/s.png";
+import oImage from "../assets/SOAP/o.png";
+import aImage from "../assets/SOAP/a.png";
+import pImage from "../assets/SOAP/p.png";
+
 import Form from 'react-bootstrap/Form';
 
 
@@ -23,51 +28,144 @@ function Chat(props) {
     // logo: props.user ? require(`../assets/avatar/${props.user}.svg`) : ""
   }
   
+  // const populateSOAP= (data)=>{
+  //   let list = [];
+  //   list.push(
+  //     <Form className="mr-2">
+  //       <Form.Group  controlId="Subjective">
+  //         <Form.Label className="h3">S</Form.Label>
+  //         <Form.Control 
+  //           as="textarea"
+  //           // style={{backgroundImage: `url(../assets/s.png)`}}
+  //           placeholder="masukkan subjective"
+  //           value={data.S}></Form.Control>
+  //       </Form.Group>
+  //       <Form.Group  controlId="Objective">
+  //         <Form.Label className="h3">O</Form.Label>
+  //         <Form.Control 
+  //           as="textarea"
+            
+  //           placeholder="masukkan Objective"
+  //           value={data.O}></Form.Control>
+  //       </Form.Group>
+  //       <Form.Group  controlId="Analysis">
+  //         <Form.Label className="h3">A</Form.Label>
+  //         <Form.Control
+  //           as="textarea" 
+            
+  //           placeholder="masukkan Analysis"
+  //           value={data.A}></Form.Control>
+  //       </Form.Group>
+  //       <Form.Group  controlId="Planning">
+  //         <Form.Label className="h3">P</Form.Label>
+  //         <Form.Control 
+  //           as="textarea"
+            
+  //           placeholder="masukkan Planning"
+  //           value={data.P}></Form.Control>
+  //       </Form.Group>
+  //       <Row>
+  //         <ButtonGroup>
+  //           <Button variant="success" as={Col} className="mr-1 ml-1">Check patient history</Button>
+  //           <Button variant="success" as={Col} className="mr-1 ml-1">Submit SOAP</Button>
+  //         </ButtonGroup>
+  //       </Row>
+  //     </Form>
+  //   )
+  //   return list;
+  // }
+
   const populateSOAP= (data)=>{
-    let list = [];
-    list.push(
-      <Form as={Row} className="mr-2">
-        <Form.Group  controlId="Subjective">
-          <Form.Label className="h3">S</Form.Label>
-          <Form.Control 
-            as="textarea"
-            // style={{backgroundImage: `url(../assets/s.png)`}}
-            placeholder="masukkan subjective"
-            value={data.S}></Form.Control>
-        </Form.Group>
-        <Form.Group  controlId="Objective">
-          <Form.Label className="h3">O</Form.Label>
-          <Form.Control 
-            as="textarea"
-            
-            placeholder="masukkan Objective"
-            value={data.O}></Form.Control>
-        </Form.Group>
-        <Form.Group  controlId="Analysis">
-          <Form.Label className="h3">A</Form.Label>
-          <Form.Control
-            as="textarea" 
-            
-            placeholder="masukkan Analysis"
-            value={data.A}></Form.Control>
-        </Form.Group>
-        <Form.Group  controlId="Planning">
-          <Form.Label className="h3">P</Form.Label>
-          <Form.Control 
-            as="textarea"
-            
-            placeholder="masukkan Planning"
-            value={data.P}></Form.Control>
-        </Form.Group>
-        <Row>
-          <ButtonGroup>
-            <Button variant="success" as={Col} className="mr-1 ml-1">Check patient history</Button>
-            <Button variant="success" as={Col} className="mr-1 ml-1">Submit SOAP</Button>
-          </ButtonGroup>
+    return (
+      <Form>
+        <Card className="mb-3"> 
+          <Row className="no-gutters">
+            <Col md={4}>
+              <Image
+                src={sImage}
+                width="100%"
+                className="mx-auto"
+              >
+              </Image>
+            </Col>
+            <Col md={8}>
+                <Form.Control
+                  as="textarea"
+                  value={data.S}
+                  rows={4}
+                >
+                </Form.Control>
+            </Col>
+          </Row>
+        </Card>
+        <Card className="mb-3"> 
+          <Row className="no-gutters">
+            <Col md={4}>
+              <Image
+                src={oImage}
+                width="100%"
+                className="mx-auto"
+              >
+              </Image>
+            </Col>
+            <Col md={8}>
+                <Form.Control
+                  as="textarea"
+                  value={data.O}
+                  rows={4}
+                >
+                </Form.Control>
+            </Col>
+          </Row>
+        </Card>
+        <Card className="mb-3"> 
+          <Row className="no-gutters">
+            <Col md={4}>
+              <Image
+                src={aImage}
+                width="100%"
+                className="mx-auto"
+              >
+              </Image>
+            </Col>
+            <Col md={8}>
+                <Form.Control
+                  as="textarea"
+                  value={data.A}
+                  rows={4}
+                >
+                </Form.Control>
+            </Col>
+          </Row>
+        </Card>
+        <Card className="mb-3"> 
+          <Row className="no-gutters">
+            <Col md={4}>
+              <Image
+                src={pImage}
+                width="100%"
+                className="mx-auto"
+              >
+              </Image>
+            </Col>
+            <Col md={8}>
+                <Form.Control
+                  as="textarea"
+                  value={data.P}
+                  rows={4}
+                >
+                </Form.Control>
+            </Col>
+          </Row>
+        </Card>
+       <Row>
+         <ButtonGroup>
+           <Button variant="success" as={Col} className="mr-1 ml-1">Check patient history</Button>
+           <Button variant="success" as={Col} className="mr-1 ml-1">Submit SOAP</Button>
+         </ButtonGroup>
         </Row>
       </Form>
-    )
-    return list;
+    );
   }
   
   return (
