@@ -12,9 +12,9 @@ import Admin from './pages/Admin';
 // import './App.css';
 
 const App =()=>{
-  const [user,setUser] = useState("dokter");
+  const [user,setUser] = useState(null);
 
-  const [logIn,setLogIn] = useState(true);
+  const [logIn,setLogIn] = useState(false);
 
   let history = useHistory();
 

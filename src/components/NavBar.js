@@ -8,39 +8,38 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
-import logo from "../hospital.png";
+import logo from "../assets/hospitalLogo.png";
 
 function NavBar(props) {
   const user= {
     name: props.user,
     logo: props.user ? require(`../assets/avatar/${props.user}.svg`) : ""
   }
-  
-  // require("../assets/avatar/pasien.svg");
-  // // const logoFinder = ()
 
   const populateNav = (user)=>{
     const list = [];
     if(!user.name) return list;
     list.push(
       <>
-      <Navbar.Brand href="#home">
+      <Navbar.Brand href="/">
         <img
           alt=""
           src={logo}
           width="40"
           height="40"
+          className="d-inline-block align-top"
         ></img>
-        RS Tjahaja Hati
-        <small>-powered by Sinapsis</small>
       </Navbar.Brand>
+      <Navbar.Text style={{fontSize:"1.5em"}}>
+        RS Tjahaja Hati <small style={{fontSize:"0.5em"}}>-powered by Sinapsis</small>
+      </Navbar.Text>
 
       </>
     )
     if(user.name !== "admin"){
       
       list.push(
-        <Form inline className="mr-auto">
+        <Form inline className="ml-2 mr-auto">
           <FormControl 
             type="text" 
             placeholder={`cari ${user.name === "pasien" ? "dokter":"pasien"}`}
