@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Image from "react-bootstrap/Image";
+import Link from "react-router-dom/Link";
 
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
@@ -21,7 +22,7 @@ function NavBar(props) {
     if(!user.name) return list;
     list.push(
       <>
-      <Navbar.Brand href="/">
+      <Navbar.Brand as={Link} to={`/${user.name}`}>
         <img
           alt=""
           src={logo}
