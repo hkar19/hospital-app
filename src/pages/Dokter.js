@@ -7,8 +7,10 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Accordion from "react-bootstrap/Accordion";
 import ListGroup from "react-bootstrap/ListGroup";
+import Button from "react-bootstrap/Button";
 import { Link, BrowserRouter as Router, Route, Switch, useRouteMatch } from 'react-router-dom';
 import Chat from "./Chat";
+import CardDeck from 'react-bootstrap/CardDeck';
 
 function Dokter() {
   let match = useRouteMatch();
@@ -26,7 +28,9 @@ function Dokter() {
               <ListGroup.Item>Keluhan: {val.keluhan}</ListGroup.Item>
               <ListGroup.Item>Tanggal: {val.date}</ListGroup.Item>
               <ListGroup.Item>
-                <Link to={`${match.url}/chat`}>Panggil</Link>
+                <Button variant="outline-success">
+                  <Link to={`${match.url}/chat`}>Panggil</Link>
+                </Button>
               </ListGroup.Item>
             </ListGroup>
           </Card.Body>
@@ -40,35 +44,42 @@ function Dokter() {
       <Container>
         
         <Row>
-          <Card as={Col}>
-            <Calendar/>
-          </Card>
-          <Card as={Col}>
-            <Card.Header>
-              Janji dengan pasien
-            </Card.Header>
-            <Card.Body>
-              <Accordion>
-                {populateJanji(janjiDummy)}
-              </Accordion>
-            </Card.Body>
-          </Card>
+          <Col>
+              <Calendar className="mx-3 mb-2"/>
+          </Col>
+          <Col>
+            <Card>
+              <Card.Header>
+                Janji dengan pasien
+              </Card.Header>
+              <Card.Body>
+                <Accordion>
+                  {populateJanji(janjiDummy)}
+                </Accordion>
+              </Card.Body>
+            </Card>
+          </Col>
         </Row>
-        <Card as={Row}>
+
+        <Card as={Row} className="mb-2">
           <Card.Header>
             Grafik
           </Card.Header>
+          <Card.Body>
+            Data
+          </Card.Body>
         </Card>
         <Card as={Row}>
           <Card.Header>
-            Hasil Pencarian Dokter
+            Hasil pencarian pasien
           </Card.Header>
+          <Card.Body>
+            Data
+          </Card.Body>
         </Card>
         
+        
       </Container>
-      {/* <Switch>
-        <Route path="/dokter/chat" render={()=>(<Chat user="dokter"/>)}></Route>
-      </Switch> */}
     </Jumbotron>
   )
 }

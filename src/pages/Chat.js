@@ -8,8 +8,9 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Image from "react-bootstrap/Image";
+import ResponsiveEmbed from 'react-bootstrap/ResponsiveEmbed'
 
-import video from "../assets/vidCall.jpg";
+import video from "../assets/Coding Train Late Night 1.mp4";
 import sImage from "../assets/SOAP/s.png";
 import oImage from "../assets/SOAP/o.png";
 import aImage from "../assets/SOAP/a.png";
@@ -18,10 +19,14 @@ import pImage from "../assets/SOAP/p.png";
 import Form from 'react-bootstrap/Form';
 
 
-import { AiOutlineAudioMuted as Mute } from "react-icons/ai";
+import { 
+  AiOutlineAudioMuted as Mute, 
+  AiOutlineSave as Save,
+  AiOutlineHistory as History } from "react-icons/ai";
 import { FiVideoOff as CameraOff } from "react-icons/fi";
 import { RiCameraSwitchLine as CameraSwitch } from "react-icons/ri";
 import { FcEndCall as EndCall } from "react-icons/fc";
+// import { GrSave as Save } from "react-icons/gr";
 
 function Chat(props) {
   const user= {
@@ -31,105 +36,86 @@ function Chat(props) {
 
   const populateSOAP= (data)=>{
     return (
-      <Form>
-        <Card className="mt-3 mb-3"> 
-          <Row className="no-gutters">
-            <Col md={4}>
-              <Image
-                src={sImage}
-                width="100%"
-                className="mx-auto"
-              >
-              </Image>
-            </Col>
-            <Col md={8}>
-                <Form.Control
-                  as="textarea"
+      <Form >
+          <Card className="mb-3"> 
+            <Row className="no-gutters" style={{background:`${sImage}`}}>
+              <Col >
+                <Form.Control as="textarea" rows={4} 
+                  style={{
+                    backgroundImage:`url(${sImage})`,
+                    backgroundRepeat:"no-repeat"
+                    }}
                   value={data.S}
-                  rows={4}
+                  onChange={()=>{return}}
                 >
                 </Form.Control>
-            </Col>
-          </Row>
-        </Card>
-        <Card className="mb-3"> 
-          <Row className="no-gutters">
-            <Col md={4}>
-              <Image
-                src={oImage}
-                width="100%"
-                className="mx-auto"
-              >
-              </Image>
-            </Col>
-            <Col md={8}>
-                <Form.Control
-                  as="textarea"
+              </Col>
+            </Row>
+          </Card>
+          <Card className="mb-3"> 
+            <Row className="no-gutters">
+              <Col >
+                <Form.Control as="textarea" rows={4} 
+                  style={{
+                    backgroundImage:`url(${oImage})`,
+                    backgroundRepeat:"no-repeat"
+                    }}
                   value={data.O}
-                  rows={4}
+                  onChange={()=>{return}}
                 >
                 </Form.Control>
-            </Col>
-          </Row>
-        </Card>
-        <Card className="mb-3"> 
-          <Row className="no-gutters">
-            <Col md={4}>
-              <Image
-                src={aImage}
-                width="100%"
-                className="mx-auto"
-              >
-              </Image>
-            </Col>
-            <Col md={8}>
-                <Form.Control
-                  as="textarea"
+              </Col>
+            </Row>
+          </Card>
+          <Card className="mb-3"> 
+            <Row className="no-gutters">
+              <Col >
+                <Form.Control as="textarea" rows={4} 
+                  style={{
+                    backgroundImage:`url(${aImage})`,
+                    backgroundRepeat:"no-repeat"
+                    }}
                   value={data.A}
-                  rows={4}
+                  onChange={()=>{return}}
                 >
                 </Form.Control>
-            </Col>
-          </Row>
-        </Card>
-        <Card className="mb-3"> 
-          <Row className="no-gutters">
-            <Col md={4}>
-              <Image
-                src={pImage}
-                width="100%"
-                className="mx-auto"
-              >
-              </Image>
-            </Col>
-            <Col md={8}>
-                <Form.Control
-                  as="textarea"
+              </Col>
+            </Row>
+          </Card>
+          <Card className="mb-3"> 
+            <Row className="no-gutters">
+              <Col >
+                <Form.Control as="textarea" rows={4} 
+                  style={{
+                    backgroundImage:`url(${pImage})`,
+                    backgroundRepeat:"no-repeat"
+                    }}
                   value={data.P}
-                  rows={4}
+                  onChange={()=>{return}}
                 >
                 </Form.Control>
-            </Col>
+              </Col>
+            </Row>
+          </Card>
+          <Row className="justify-content-around" style={{position:"aboslute",bottom:"0"}}>
+            <Button variant="success" as={Col} className="ml-1 mr-1"><History className="h4"/></Button>
+            <Button variant="success" as={Col} className="ml-1 mr-1"><Save className="h4"/></Button>
           </Row>
-        </Card>
-       <Card.Footer>
-         <ButtonGroup >
-           <Button variant="success" as={Col} className="mr-1 ml-1">Check patient history</Button>
-           <Button variant="success" as={Col} className="mr-1 ml-1">Submit SOAP</Button>
-         </ButtonGroup>
-        </Card.Footer>
       </Form>
     );
   }
   
   return (
-    <Jumbotron>
       <Container>
+        <Jumbotron className="px-5 py-2">
         <Row>
           {user.name === "dokter" ? (
-              <Card as={Col} xs={6} sm={5} md={4} lg={3}>
-                {populateSOAP(SOAPDummy)}
-              </Card>
+            <Col sm={4} md={3} lg={3} >
+              <Container className="h-100">
+              {populateSOAP(SOAPDummy)}
+              </Container>
+            
+            </Col>   
           ): []}
             <Card as={Col}>
               
@@ -143,12 +129,12 @@ function Chat(props) {
                 
               </Card.Header>
               <Card.Body>
-                <Card.Img
-                  alt=""
-                  src={video}
-                  height="500"
-                >
-                </Card.Img>
+                <div style={{ }}>
+                  <ResponsiveEmbed aspectRatio="16by9">
+                      <embed src={video}></embed>
+                      
+                  </ResponsiveEmbed>
+                </div>
               </Card.Body>
               <Card.Footer as={Row} className="justify-content-around">
                   <ButtonGroup className="">
@@ -168,8 +154,9 @@ function Chat(props) {
               </Card.Footer>
             </Card>
         </Row>
+        </Jumbotron>
+ 
       </Container>
-    </Jumbotron>
   )
 }
 
