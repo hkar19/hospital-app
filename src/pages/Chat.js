@@ -4,10 +4,10 @@ import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
+// import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Image from "react-bootstrap/Image";
+// import Image from "react-bootstrap/Image";
 import ResponsiveEmbed from 'react-bootstrap/ResponsiveEmbed'
 
 import video from "../assets/Coding Train Late Night 1.mp4";
@@ -111,7 +111,7 @@ function Chat(props) {
         <Row>
           {user.name === "dokter" ? (
             <Col sm={4} md={3} lg={3} >
-              <Container className="h-100">
+              <Container style={{alignContent:"stretch"}}>
               {populateSOAP(SOAPDummy)}
               </Container>
             
