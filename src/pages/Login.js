@@ -44,15 +44,21 @@ const Login = (props)=>{
   return props.user ? [] : (
     <Jumbotron>
       <Container className="justify-content-md-center">
-        <Form  lg={6} onSubmit={handleSubmit}>
-          <Image
-            alt=""
-            src={logo}
-            height="20%"
-            width="20%"
-          ></Image>
-          <h2>RS Tjahaja Hati</h2>
-          <small>powered by Sinapsis</small>
+      <Row className="align-items-center mb-2">
+            <Col xl={12} className="text-center">
+            <Image
+              alt=""
+              src={logo}
+              height="20%"
+              width="20%"
+            ></Image>
+            </Col>
+            <Col className="text-center">
+              <h2>RS Tjahaja Hati</h2>
+              <small>powered by Sinapsis</small>
+            </Col>
+          </Row>
+        <Form onSubmit={handleSubmit}>
           <Form.Group as={Row} controlId="user">
             <Form.Label column sm={2}>User</Form.Label>
             <Col sm={10}>
