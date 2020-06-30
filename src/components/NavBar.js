@@ -4,11 +4,13 @@ import Nav from "react-bootstrap/Nav";
 import NavItem from "react-bootstrap/NavItem";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Image from "react-bootstrap/Image";
-import Link from "react-router-dom/Link";
+import { Link } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip'
 
 import logo from "../assets/hosp/res/mipmap-mdpi/hosp.png";
 // src\assets\hosp\res\mipmap-xhdpi\hosp.png
@@ -16,38 +18,77 @@ import logo from "../assets/hosp/res/mipmap-mdpi/hosp.png";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
+import { AiOutlineDollarCircle as DollarSign } from "react-icons/ai";
+
 function NavBar(props) {
   const user= {
     name: props.user === "admin" ? "admin":( props.user === "dokter" ? "dr Wayan":"Nugroho"),
     logo: require(`../assets/avatar/${props.user}Ava/res/mipmap-mdpi/${props.user}Ava.png`),
-    ava: require(`../assets/avatar/${props.user}Ava/res/mipmap-hdpi/${props.user}Ava.png`)
+    ava: props.user !== "admin" ? require(`../assets/avatar/${props.user}Ava/res/mipmap-xxxhdpi/${props.user}Ava.png`) : null
   }
-  // src\assets\avatar\adminAva\res\mipmap-mdpi\adminAva.png
+  // src\assets\avatar\pasienAva\web_hi_res_512.png
+
+  const handleFinancial= (e)=>{
+    e.preventDefault();
+    alert("dollar sign was clicked");
+    return;
+  }
+
+  const handleProfileClick= (e)=>{
+    e.preventDefault();
+    alert("profile was clicked ");
+    return;
+  }
 
   const populateAva = ()=>{
-
+    
     return (
         <Navbar.Collapse >
-          {/* <Row className="ml-auto" style={{marginRight:"2%"}}>
-            <Col lg={11} style={{padding:0}}>
-            Selamat Datang, {user.name}!
-            </Col> */}
-              <NavDropdown
-                className="ml-auto"
-                title={
-                  <div style={{color:"black"}}>
-                    {`Selamat datang, ${user.name}!`}
-                    <Image
-                      alt=""
-                      src={user.logo}
-                    ></Image>
-                  </div>
-                }
-              >
-                
+          <NavDropdown
+            className="ml-auto"
+            alignRight
+            style={{width:"30%",color:"black"}}
+            drop="down"
+            title={
+              <>
+                {user.name}
+                <Image
+                    alt=""
+                    src={user.logo}
+                  ></Image>
+              </>
+            }
+          >
+            {user.name === "admin" ? []:(
+              <>
+              <NavDropdown.Item
+              onClick={handleProfileClick}
+              style={{
+                flexDirection:"column",
+                textAlign:"center"
+              }}
+            >
+              <Image src={user.ava}/>
+              <div>{user.name}</div>
 
-              </NavDropdown>
-          {/* </Row> */}
+            </NavDropdown.Item>
+            <OverlayTrigger
+              overlay={
+              <Tooltip>{props.user === "pasien" ? "klik untuk ke Top-up credit":"klik untuk ke finansial"}</Tooltip>
+              }
+            >
+              <NavDropdown.Item onClick={handleFinancial} style={{textAlign:"center"}}>
+              Rp. 2.000.000,-
+              </NavDropdown.Item>
+              
+            </OverlayTrigger>
+            <NavDropdown.Divider />
+              </>
+            )}
+            
+            <NavDropdown.Item>Pengaturan</NavDropdown.Item>
+            <NavDropdown.Item onClick={props.handleLogOut}>logout</NavDropdown.Item>
+          </NavDropdown>
         </Navbar.Collapse>
       )
   }

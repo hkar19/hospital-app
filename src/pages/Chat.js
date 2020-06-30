@@ -121,7 +121,7 @@ function Chat(props) {
               
               <Card.Header as={Row}  className="h2">
                 <Col lg={8}>
-                  {user.name === "dokter"? ("Renata Daulay"):("dr. Joanna Vanderboom")}
+                  {user.name === "dokter"? ("Nugroho"):("dr. Wayan")}
                 </Col>
                 <Col className="text-right">
                   (12:35)

@@ -12,6 +12,8 @@ import { Link, BrowserRouter as Router, Route, Switch, useRouteMatch } from 'rea
 import Chat from "./Chat";
 import CardDeck from 'react-bootstrap/CardDeck';
 
+import 'react-calendar/dist/Calendar.css';
+
 function Dokter() {
   let match = useRouteMatch();
 

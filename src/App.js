@@ -20,7 +20,7 @@ const App =()=>{
 
   const userSubmitHandler = (input)=>{
     //implementation here
-    console.log("HELOO")
+    console.log("Login authorized")
     if(userDummy[input]){
       setUser(input);
       setLogIn(true);

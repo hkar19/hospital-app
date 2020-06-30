@@ -38,9 +38,7 @@ const Login = (props)=>{
   }
 
   const handleSubmit = (e)=>{
-    console.log("ye?")
     e.preventDefault();
-    console.log(user,password);
     props.userSubmitHandler(user);
     setUser("");
     setPassword("");
