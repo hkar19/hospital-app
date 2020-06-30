@@ -61,12 +61,12 @@ const Login = (props)=>{
       ></Image>
       <p style={{fontSize:"xx-large"}}>RS Tjahaja Hati</p>
       <p style={{fontSize:"small"}}>powered by Sinapsis</p>
-      <Form onSubmit={handleSubmit} inline style={{flexDirection:"column"}}>
+      <Form class="form-login" onSubmit={handleSubmit} inline style={{flexDirection:"column"}}>
         <Form.Group style={{justifyContent:"space-between"}}>
           <Form.Label>Username</Form.Label>
           <Form.Control
-            type="text"
-            placeholder="username anda"
+            class="form-login-box"
+            placeholder="username"
             value={user}
             onChange={userChangeHandler}
           ></Form.Control>
@@ -74,8 +74,8 @@ const Login = (props)=>{
         <Form.Group style={{justifyContent:"space-between"}}>
           <Form.Label>Password</Form.Label>
           <Form.Control
-            type="password"
-            placeholder="password anda"
+            class="form-login-box"
+            placeholder="password"
             value={password}
             onChange={passwordChangeHandler}
           ></Form.Control>
