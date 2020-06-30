@@ -9,7 +9,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Image from "react-bootstrap/Image";
 // // import Card from "react-bootstrap/Card";
 
-import logo from "../assets/hosp/res/mipmap-xxxhdpi/hosp.png";
+import logo from "../assets/hospital_logo.png";
 // src\assets\hosp\res\mipmap-xxxhdpi\hosp.png
 import Container from 'react-bootstrap/Container';
 import { useHistory } from 'react-router-dom';
