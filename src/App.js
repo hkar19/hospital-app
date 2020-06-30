@@ -36,7 +36,7 @@ const App =()=>{
 
   return (
     <Router>
-      <NavBar user={user} handleLogOut={handleLogOut}/>
+      {user === null ? []:(<NavBar user={user} handleLogOut={handleLogOut}/>)}
       <Route exact path="/">
         {logIn ? (<Redirect to={`/${user}`}/>): (<Login userSubmitHandler={userSubmitHandler}/>)}
       </Route>
