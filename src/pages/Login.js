@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
@@ -20,6 +20,10 @@ const Login = (props)=>{
   const [password,setPassword] = useState("");
 
   // const history = useHistory();
+
+  useEffect(() => {
+    document.title= `RS Tjahaja Hati WebApp`;
+  }, []);
 
 
   const userChangeHandler = (e)=>{
@@ -44,7 +48,13 @@ const Login = (props)=>{
 
   return(
   <Container>
-    <Jumbotron style={{flexDirection:"column",justifyContent:"center",textAlign:"center"}}>
+    <Jumbotron 
+      style={{
+        flexDirection:"column",
+        justifyContent:"center",
+        textAlign:"center",
+        margin:"3% 3%"
+        }}>
       <Image
         alt=""
         src={logo}
