@@ -14,7 +14,7 @@ import logo from "../assets/hosp/res/mipmap-xxxhdpi/hosp.png";
 import Container from 'react-bootstrap/Container';
 import { useHistory } from 'react-router-dom';
 
-// import "./sinapsis-login.css"
+import "./sinapsis-login.css"
 
 
 const Login = (props)=>{
@@ -47,67 +47,100 @@ const Login = (props)=>{
   }
 
   return(
-    // <Container
-    // style={{
-    //   backgroundImage:`url(${require("../assets/doctor_background.jpg")})`,
-    //   backgroundRepeat:"no-repeat",
-    //   backgroundSize:"contain"
-    // }}
-    // >
-    //   <Jumbotron>
-
-    //   </Jumbotron>
-    // </Container>
-
-  <Container
-      style={{
-      backgroundImage:`url(${require("../assets/doctor_background.jpg")})`,
-      backgroundRepeat:"no-repeat",
-      // backgroundSize:"contain"
-    }}
-  >
-    <Row>
-      <Col 
-        md={"auto"}
+    <Container>
+      <Jumbotron
         style={{
           flexDirection:"column",
           justifyContent:"center",
           textAlign:"center",
-          marginLeft:"auto",
-          padding:"1%"
-          }}>
-        <Image
-          alt=""
-          src={logo}
-        ></Image>
-        <p style={{fontSize:"xx-large"}}>RS Tjahaja Hati</p>
+          margin:"3%"
+        }}
+      >
+        <div className="loginbox">
+          <Image src={logo}></Image>
+          <p className="title-text">RS Tjahaja Hati</p>
+          <p className="slogan-text">Senantiasa Melayani Dengan Hati</p>
+          <Form inline 
+            style={{flexDirection:"column"}}
+            onSubmit={handleSubmit}  
+          >
+            <Form.Group style={{justifyContent:"space-between"}}>
+              <Form.Label className="form-label">Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="username anda"
+                value={user}
+                onChange={userChangeHandler}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group style={{justifyContent:"space-between"}}>
+              <Form.Label className="form-label">Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="password anda"
+                value={password}
+                onChange={passwordChangeHandler}
+              ></Form.Control>
+            </Form.Group>
+            <Button 
+              variant="primary" 
+              type="submit"
+              >Login</Button>
+          </Form>
+          <p className="sinapsis-text">powered by Sinapsis</p>
+        </div>
+      </Jumbotron>
+    </Container>
 
-        <Form onSubmit={handleSubmit} inline style={{flexDirection:"column",justifyContent:"center"}}>
-          <Form.Group style={{justifyContent:"space-between"}}>
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="username anda"
-              value={user}
-              onChange={userChangeHandler}
-            ></Form.Control>
-          </Form.Group>
-          <Form.Group style={{justifyContent:"space-between"}}>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="password anda"
-              value={password}
-              onChange={passwordChangeHandler}
-            ></Form.Control>
-          </Form.Group>
-          <Button type="submit">Login</Button>
-        </Form>
-        <p style={{fontSize:"small"}}>powered by Sinapsis</p>
-      </Col>
-    </Row>
+  // <Container
+  //     style={{
+  //     backgroundImage:`url(${require("../assets/doctor_background.jpg")})`,
+  //     backgroundRepeat:"no-repeat",
+  //     // backgroundSize:"contain"
+  //   }}
+  // >
+  //   <Row>
+  //     <Col 
+  //       md={"auto"}
+  //       style={{
+  //         flexDirection:"column",
+  //         justifyContent:"center",
+  //         textAlign:"center",
+  //         marginLeft:"auto",
+  //         padding:"1%"
+  //         }}>
+  //       <Image
+  //         alt=""
+  //         src={logo}
+  //       ></Image>
+  //       <p style={{fontSize:"xx-large"}}>RS Tjahaja Hati</p>
 
-  </Container>
+  //       <Form onSubmit={handleSubmit} inline style={{flexDirection:"column",justifyContent:"center"}}>
+  //         <Form.Group style={{justifyContent:"space-between"}}>
+  //           <Form.Label>Username</Form.Label>
+  //           <Form.Control
+  //             type="text"
+  //             placeholder="username anda"
+  //             value={user}
+  //             onChange={userChangeHandler}
+  //           ></Form.Control>
+  //         </Form.Group>
+  //         <Form.Group style={{justifyContent:"space-between"}}>
+  //           <Form.Label>Password</Form.Label>
+  //           <Form.Control
+  //             type="password"
+  //             placeholder="password anda"
+  //             value={password}
+  //             onChange={passwordChangeHandler}
+  //           ></Form.Control>
+  //         </Form.Group>
+  //         <Button type="submit">Login</Button>
+  //       </Form>
+  //       <p style={{fontSize:"small"}}>powered by Sinapsis</p>
+  //     </Col>
+  //   </Row>
+
+  // </Container>
 
   );
 }
