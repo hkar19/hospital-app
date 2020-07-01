@@ -1,0 +1,61 @@
+body {
+	margin: 0 0 0 0;
+	background-image: url("https://i.imgur.com/c0nfcuM.jpg");
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.jumbotron {
+	background: none;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.jumbotron .loginbox {
+	padding-left: 500px;
+}
+.jumbotron .loginbox p {
+	font-family: "Segoe UI";
+}
+.jumbotron .loginbox .title-text {
+	font-size: 32px;
+	font-weight: bold;
+}
+.jumbotron .loginbox .slogan-text {
+	font-size: 14px;
+}
+.jumbotron .loginbox .sinapsis-text {
+	margin-top: 30px;
+	font-size: 10px;
+}
+.jumbotron .loginbox img {
+	width: 150px;
+	height: 150px;
+}
+.jumbotron .loginbox .form-inline {
+}
+.jumbotron .loginbox .form-inline label {
+	visibility: collapse;
+}
+.jumbotron .loginbox .form-inline input {
+	background: #fff;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-width: 0 0 1px 0;
+	border-color: #096;
+	border-radius: 0 0 0 0;
+	font-family: Arial;
+	font-size: 12px;
+	font-spacing: 1.5em;
+	text-align: center;
+}
+.jumbotron .loginbox .form-inline button {
+	background: #093;
+	border-width: 0 0 0 0;
+	border-radius: 100 100 100 100;
+	font-family: Arial;
+	font-size: 12px;
+	font-spacing: 1.5em;
+	margin-top: 10px;
+	height: 40px;
+	width: 105px;
+}
